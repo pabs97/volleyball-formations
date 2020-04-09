@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+.court {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  width: 600px;
+  height: 600px;
+  border: 5px black solid;
+
+  /* &--attack-line {
+    border: 1px black solid;
+  } */
+}
+
+.court--attack-line {
+  height: 200px;
+  border-bottom: 5px blue solid;
+}
+
+.player {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  background-color: lightgreen;
+  border-radius: 50%;
+  text-align: center;
+  font-family: sans-serif;
+  opacity: .8;
+  border: 1px solid black;
+  
+  transform: translate(-50%, -50%);
+  transition: 2s;
+}
