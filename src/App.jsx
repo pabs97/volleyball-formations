@@ -3,40 +3,20 @@ import Court from './components/court';
 import Controls from './components/controls';
 import rotations from './rotations';
 
-class App extends Component {
+import { Provider } from 'react-redux';
+import store from './store';
 
-  state = {
-    players: rotations.rotation2.receive,
-  }
+class App extends Component {
 
   render() {
     return (
-      <section>
-        <Court
-          players={[...this.state.players]}
-        />
-        <Controls
-          handleServeReceiveTransition={this.updateFormation}
-          handleDefenseTransition={this.transformRotationIntoDefense}
-        />
-      </section>
+      <Provider store={store}>
+        <Court />
+        <Controls />
+      </Provider>
     );
   }
 
-  updateFormation = (rotation, serveTransition) => {
-    console.log(rotation, serveTransition, rotations);
-    serveTransition = serveTransition === 1 ? 'receive' : 'transition';
-
-    this.setState({
-      players: rotations[`rotation${rotation}`][serveTransition]
-    });
-  }
-
-  transformRotationIntoDefense = (defense) => {
-    this.setState({
-      players: rotations.defense[defense]
-    })
-  }
 }
 
 export default App;

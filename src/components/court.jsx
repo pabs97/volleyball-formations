@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Player from './player';
 
+import { connect } from 'react-redux';
+
 class Court extends Component {
 
   render() {
@@ -13,14 +15,24 @@ class Court extends Component {
   }
 
   generatePlayers() {
+    if (!this.props.players) return;
+
     let i = 0;
     return this.props.players.map((player) => {
-      return <Player
-        key={i++}
-        {...player}
-      />
+      return (
+        <Player
+          key={i++}
+          {...player}
+        />
+      )
     });
   }
 }
 
-export default Court;
+const mapStateToProps = (state) => {
+  return {
+    players: state.playersReducer.players,
+  };
+};
+
+export default connect(mapStateToProps, {})(Court);
