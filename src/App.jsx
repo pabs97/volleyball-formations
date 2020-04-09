@@ -16,7 +16,8 @@ class App extends Component {
           players={[...this.state.players]}
         />
         <Controls
-          handleAnimation={this.updateFormation}
+          handleServeReceiveTransition={this.updateFormation}
+          handleDefenseTransition={this.transformRotationIntoDefense}
         />
       </section>
     );
@@ -29,6 +30,12 @@ class App extends Component {
     this.setState({
       players: rotations[`rotation${rotation}`][serveTransition]
     });
+  }
+
+  transformRotationIntoDefense = (defense) => {
+    this.setState({
+      players: rotations.defense[defense]
+    })
   }
 }
 
