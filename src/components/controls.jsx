@@ -6,12 +6,12 @@ import { setServeFormation } from '../actions/serve';
 import { setReceiveFormation } from '../actions/receive';
 import { defineRoles } from '../actions/defineRoles';
 import { connect } from 'react-redux';
+import { setAttackFormation } from '../actions/attack';
 
 class Controls extends Component {
-  state = {}
   render() {
 
-    const { rotateBase, setLevel, level, rotation } = this.props;
+    const { rotation } = this.props;
     // TODO input to set animation speed
     // TODO: add toggles and grey them out instead
 
@@ -20,10 +20,10 @@ class Controls extends Component {
         <h3>Rotation {rotation}</h3>
         <button onClick={this.handleBase}>1 - Rotation {rotation} Base</button>
 
-
         {this.renderBaseButtons()}
         {this.renderDefenseButtons()}
-
+        {this.renderPrepareAttackButton()}
+        {this.renderAttackButton()}
       </section >
     );
   }
@@ -43,7 +43,8 @@ class Controls extends Component {
   renderDefenseButtons() {
     const { level } = this.props;
 
-    if (level === 2 || level >= 4 && level <= 7) {
+    console.log('renderDefenseButtons', level);
+    if (level === 2 || (level >= 4 && level <= 9)) {
       return (
         <Fragment>
           <button onClick={() => this.handleDefense(4)}>4 - Base Defense</button>
@@ -51,7 +52,35 @@ class Controls extends Component {
           <button onClick={() => this.handleDefense(6)}>6 - Middle Defense</button>
           <button onClick={() => this.handleDefense(7)}>7 - Right Defense</button>
         </Fragment>
-      )
+      );
+    }
+  }
+
+  renderPrepareAttackButton() {
+    const { level } = this.props;
+
+    console.log('renderPrepareAttackButton', level);
+
+    if (level === 3 || (level >= 5 && level <= 9)) {
+      return (
+        <Fragment>
+          <button onClick={() => this.handleAttack(8)}>8 - Prepare Attack</button>
+        </Fragment>
+      );
+    }
+  }
+
+  renderAttackButton() {
+    const { level } = this.props;
+
+    console.log('renderAttackButton', level);
+
+    if (level === 3 || level >= 5 && level <= 9) {
+      return (
+        <Fragment>
+          <button onClick={() => this.handleAttack(9)}>9 - Attack</button>
+        </Fragment>
+      );
     }
   }
 
@@ -91,13 +120,20 @@ class Controls extends Component {
   }
 
   handleDefense = (level) => {
-
     const { setDefense, setLevel, players } = this.props;
     const defenseTypes = ['base', 'left', 'middle', 'right'];
 
     setLevel(level);
     setDefense(players, defenseTypes[level - 4]);
   }
+
+  handleAttack = (level) => {
+    const { setLevel, players, rotation, setAttackFormation } = this.props;
+
+    setLevel(level);
+    setAttackFormation(players, rotation, level === 8);
+  }
+
 
 }
 
@@ -113,6 +149,7 @@ export default connect(
     setDefense,
     defineRoles,
     setServeFormation,
-    setReceiveFormation
+    setReceiveFormation,
+    setAttackFormation,
   }
 )(Controls);

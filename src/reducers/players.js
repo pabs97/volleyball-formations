@@ -1,7 +1,8 @@
 import { SET_ROTATION_BASE, DEFINE_ROTATION_ROLES, SET_FORMATION } from '../actions/types';
+import { getFormationForRotation } from '../actions/rotateBase';
 
 const initialState = {
-  players: [],
+  players: getFormationForRotation(1),
   rotation: 1,
   setterBackRow: true,
   serving: false,

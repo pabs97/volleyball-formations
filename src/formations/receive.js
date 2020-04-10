@@ -1,10 +1,5 @@
 const receive = [
 
-
-  // { left: 80, top: 60 },
-  // { left: 50, top: 60 },
-  // { left: 20, top: 60 },
-
   // Rotation 1
   [
     { left: 90, top: 60 }, // S - backrow

@@ -1,24 +1,14 @@
 import { SET_ROTATION_BASE } from './types';
-import { base } from '../formations/base'
-
-const coordinates = [
-  // Back Row
-  { left: 80, top: 60 },
-  { left: 50, top: 60 },
-  { left: 20, top: 60 },
-
-  // Front Row
-  { left: 20, top: 25 },
-  { left: 50, top: 25 },
-  { left: 80, top: 25 },
-];
+import { base, coordinates } from '../formations/base'
 
 export const rotateBase = (rotation) => (dispatch) => {
 
-  const players = base.map((player, i) => {
-    const coord = (i + rotation - 1) % 6;
-    return Object.assign(player, coordinates[coord]);
-  });
+  // const players = base.map((player, i) => {
+  //   const coord = (i + rotation - 1) % 6;
+  //   return Object.assign(player, coordinates[coord]);
+  // });
+
+  const players = getFormationForRotation(rotation);
 
   dispatch({
     type: SET_ROTATION_BASE,
@@ -33,4 +23,11 @@ export const rotateBase = (rotation) => (dispatch) => {
   // rotation 5: i + 4
   // rotation 6: i + 5
 
+}
+
+export function getFormationForRotation(rotation) {
+  return base.map((player, i) => {
+    const coord = (i + rotation - 1) % 6;
+    return Object.assign(player, coordinates[coord]);
+  });
 }

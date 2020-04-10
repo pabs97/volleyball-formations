@@ -35,12 +35,11 @@ export const defineRoles = (players, rotation, receive) => (dispatch) => {
   players[5].role = (rotation + 4) % 6 < 3 ?
     'BM' : 'FL';
 
-
   // Special case if serve receive and Rotation 1
   // R stays as FL and H1 stays as FR
   if (receive && rotation === 1) {
-    players[3] = 'FL';
-    players[0] = 'FR';
+    players[3].role = 'FL';
+    players[5].role = 'FR';
   }
 
   dispatch({
