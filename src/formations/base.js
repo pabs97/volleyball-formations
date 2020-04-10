@@ -1,4 +1,4 @@
-export const playersBase = [
+export const base = [
   { position: 'S' },
   { position: 'M1' },
   { position: 'H2' },

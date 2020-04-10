@@ -1,6 +1,6 @@
 import { DEFINE_ROTATION_ROLES } from './types';
 
-export const defineRolesServingAction = (players, rotation) => (dispatch) => {
+export const defineRoles = (players, rotation, receive) => (dispatch) => {
   players = [...players];
 
   // Set Player Roles
@@ -36,44 +36,12 @@ export const defineRolesServingAction = (players, rotation) => (dispatch) => {
     'BM' : 'FL';
 
 
-
-
-  // Set Player Coordinates
-  switch (rotation) {
-    case 1:
-      players[0].left = 80;
-      players[0].top = 107;
-      players[1].left = 40;
-      players[1].top = 55;
-      players[2].left = 30;
-      players[2].top = 80;
-
-      players[3].left = 45;
-      players[3].top = 10;
-      players[4].left = 50;
-      players[4].top = 5;
-      players[5].left = 55;
-      players[5].top = 15;
-      break;
-
-    case 2:
-      players[0].left = 90;
-      players[0].top = 60;
-      players[1].left = 10;
-      players[1].top = 60;
-      players[2].left = 30;
-      players[2].top = 5;
-
-      players[3].left = 45;
-      players[3].top = 10;
-      players[4].left = 50;
-      players[4].top = 5;
-      players[5].left = 50;
-      players[5].top = 107;
-      break;
+  // Special case if serve receive and Rotation 1
+  // R stays as FL and H1 stays as FR
+  if (receive && rotation === 1) {
+    players[3] = 'FL';
+    players[0] = 'FR';
   }
-
-
 
   dispatch({
     type: DEFINE_ROTATION_ROLES,

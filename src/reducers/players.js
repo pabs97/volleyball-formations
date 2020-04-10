@@ -1,4 +1,4 @@
-import { SET_ROTATION_BASE, DEFINE_ROTATION_ROLES, SET_DEFENSE } from '../actions/types';
+import { SET_ROTATION_BASE, DEFINE_ROTATION_ROLES, SET_FORMATION } from '../actions/types';
 
 const initialState = {
   players: [],
@@ -27,7 +27,7 @@ export default function roles(state = initialState, action) {
         rotation,
         setterBackRow
       };
-    case SET_DEFENSE:
+    case SET_FORMATION:
       return {
         ...state,
         players,

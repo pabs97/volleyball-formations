@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { rotateBase } from '../actions/rotateBase';
 import { setLevel } from '../actions/setLevel';
 import { setDefense } from '../actions/defense';
-import { defineRolesServingAction } from '../actions/defineRoles';
+import { setServeFormation } from '../actions/serve';
+import { setReceiveFormation } from '../actions/receive';
+import { defineRoles } from '../actions/defineRoles';
 import { connect } from 'react-redux';
 
 class Controls extends Component {
@@ -11,11 +13,12 @@ class Controls extends Component {
 
     const { rotateBase, setLevel, level, rotation } = this.props;
     // TODO input to set animation speed
+    // TODO: add toggles and grey them out instead
 
     return (
       <section className='controls'>
-        <h4>Rotation {rotation}</h4>
-        <button onClick={this.handleBase}>1 - Base</button>
+        <h3>Rotation {rotation}</h3>
+        <button onClick={this.handleBase}>1 - Rotation {rotation} Base</button>
 
 
         {this.renderBaseButtons()}
@@ -32,7 +35,7 @@ class Controls extends Component {
       <Fragment>
         {this.rotateButtons()}
         <button onClick={this.handleServe}>2 - Serve</button>
-        <button onClick={() => this.props.setLevel(3)}>3 - Receive</button>
+        <button onClick={this.handleReceive}>3 - Receive</button>
       </Fragment>
     );
   }
@@ -60,27 +63,31 @@ class Controls extends Component {
 
   handleBase = () => {
     const { rotateBase, rotation, setLevel } = this.props;
-
     rotateBase(rotation);
     setLevel(1);
   }
 
   handleServe = () => {
-    const { defineRolesServingAction, players, setLevel, rotation } = this.props;
+    const { defineRoles, players, setLevel, rotation, setServeFormation } = this.props;
 
-    // set level to 2
     setLevel(2);
 
-    // define roles of players
-    defineRolesServingAction(players, rotation);
+    // Define roles of players
+    defineRoles(players, rotation, false);
 
-    // give players new coordinates based on these roles
+    // Set formation
+    setServeFormation(players, rotation);
   }
 
-  handleReceive() {
-    // set level to 3
-    // define roles of players
-    // give players new coordinates based on these roles
+  handleReceive = () => {
+    const { defineRoles, players, setLevel, rotation, setReceiveFormation } = this.props;
+
+    setLevel(3);
+    // Define roles of players
+    defineRoles(players, rotation, true);
+
+    // Set formation
+    setReceiveFormation(players, rotation);
   }
 
   handleDefense = (level) => {
@@ -92,13 +99,20 @@ class Controls extends Component {
     setDefense(players, defenseTypes[level - 4]);
   }
 
-
-
-
 }
 
 const mapStateToProps = (state) => {
   return { ...state.controlsReducer, ...state.playersReducer };
 };
 
-export default connect(mapStateToProps, { rotateBase, setLevel, setDefense, defineRolesServingAction })(Controls);
+export default connect(
+  mapStateToProps,
+  {
+    rotateBase,
+    setLevel,
+    setDefense,
+    defineRoles,
+    setServeFormation,
+    setReceiveFormation
+  }
+)(Controls);

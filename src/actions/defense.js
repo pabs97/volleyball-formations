@@ -1,5 +1,5 @@
-import { SET_DEFENSE } from './types';
-import defense from '../rotations/defense';
+import { SET_FORMATION } from './types';
+import defense from '../formations/defense';
 
 export const setDefense = (players, defenseType) => (dispatch) => {
 
@@ -8,7 +8,7 @@ export const setDefense = (players, defenseType) => (dispatch) => {
   });
 
   dispatch({
-    type: SET_DEFENSE,
+    type: SET_FORMATION,
     players,
   });
 }

@@ -1,5 +1,5 @@
 import { SET_ROTATION_BASE } from './types';
-import { playersBase } from '../rotations/playersBase'
+import { base } from '../formations/base'
 
 const coordinates = [
   // Back Row
@@ -14,8 +14,8 @@ const coordinates = [
 ];
 
 export const rotateBase = (rotation) => (dispatch) => {
-  // debugger;
-  const players = playersBase.map((player, i) => {
+
+  const players = base.map((player, i) => {
     const coord = (i + rotation - 1) % 6;
     return Object.assign(player, coordinates[coord]);
   });
