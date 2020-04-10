@@ -86,7 +86,7 @@ class Controls extends Component {
 
   rotateButtons() {
     return Array(6).fill().map((v, i) => {
-      return <button key={i} onClick={() => this.props.rotateBase(i + 1)}>Rotation {i + 1} Base</button>
+      return <button key={i} className='button--indent' onClick={() => this.props.rotateBase(i + 1)}>Rotation {i + 1} Base</button>
     })
   }
 

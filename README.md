@@ -38,3 +38,4 @@ change title, M to L for libero
 add tooltips
 add ball on other side
 mobile friendly
+add icon

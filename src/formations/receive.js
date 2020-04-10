@@ -34,7 +34,7 @@ const receive = [
   [
     { left: 15, top: 15 }, // S
     { left: 20, top: 22 }, // M1
-    { left: 25, top: 60 }, // H2
+    { left: 25, top: 55 }, // H2
     { left: 86, top: 85 }, // R - backrow
     { left: 80, top: 60 }, // M2 - backrow
     { left: 52, top: 60 }, // H1 - backrow

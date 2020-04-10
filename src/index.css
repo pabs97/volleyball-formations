@@ -12,6 +12,7 @@ code {
     monospace;
 } */
 
+
 .court {
   position: absolute;
   left: 50%;
@@ -19,11 +20,10 @@ code {
 
   width: 600px;
   height: 600px;
-  border: 5px black solid;
 
-  /* &--attack-line {
-    border: 1px black solid;
-  } */
+  /* width: 800px;
+  height:800px; */
+  border: 5px black solid;
 }
 
 .court--attack-line {
@@ -52,4 +52,14 @@ code {
 
 .controls button {
   display: block;
+  min-width: 150px;
+  height:30px;
+  background-color: rgb(5, 5, 58);
+  color: white;
+  margin:2px;
+  text-align: left;
+}
+
+.controls  button.button--indent {
+  margin-left: 20px;
 }
