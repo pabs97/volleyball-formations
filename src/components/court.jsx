@@ -30,9 +30,7 @@ class Court extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    players: state.playersReducer.players,
-  };
+  return { ...state.playersReducer };
 };
 
 export default connect(mapStateToProps, {})(Court);

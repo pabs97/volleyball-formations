@@ -2,6 +2,7 @@ import React from 'react';
 
 function Player(props) {
   const { left, top, position } = props;
+  // TODO: tooltip for players {role, hitting responsibility}
 
   function generateStyles() {
     return {

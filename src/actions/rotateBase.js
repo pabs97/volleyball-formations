@@ -8,9 +8,9 @@ const coordinates = [
   { left: 20, top: 60 },
 
   // Front Row
-  { left: 20, top: 40 },
-  { left: 50, top: 40 },
-  { left: 80, top: 40 },
+  { left: 20, top: 25 },
+  { left: 50, top: 25 },
+  { left: 80, top: 25 },
 ];
 
 export const rotateBase = (rotation) => (dispatch) => {
@@ -22,11 +22,12 @@ export const rotateBase = (rotation) => (dispatch) => {
 
   dispatch({
     type: SET_ROTATION_BASE,
-    players
+    players,
+    rotation,
   });
 
-  //   rotation 1: i + 0
-  //   rotation 2: i + 1 => 0 // 5 + 1 % 6 = 0
+  // rotation 1: i + 0
+  // rotation 2: i + 1 => 0 // 5 + 1 % 6 = 0
   // rotation 3: i + 2 //
   // rotation 4: i + 3
   // rotation 5: i + 4
