@@ -22,7 +22,7 @@ export const runAttack = {
   // Back Row
   'BL': { left: 30, top: 40 },
   'BM': { left: 45, top: 25 },
-  'BR': { left: 45, top: 90 },
+  'BR': { left: 90, top: 25 },
 
   // Setter
   'S': { left: 70, top: 12 },

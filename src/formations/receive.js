@@ -57,7 +57,7 @@ const receive = [
     { left: 52, top: 60 }, // H2 - backrow
     { left: 40, top: 95 }, // R - backrow
     { left: 18, top: 25 }, // M2
-    { left: 25, top: 60 }, // H1
+    { left: 25, top: 55 }, // H1
   ],
 ];
 
