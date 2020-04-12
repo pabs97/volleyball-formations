@@ -3,7 +3,7 @@ const serve = [
   // Rotation 1
   [
     { left: 80, top: 107 }, // S - serving
-    { left: 40, top: 55 }, // M1
+    { left: 40, top: 55, position: 'L' }, // M1
     { left: 30, top: 80 }, // H2
     { left: 45, top: 10 }, // R
     { left: 50, top: 5 }, // M2
@@ -13,7 +13,7 @@ const serve = [
   // Rotation 2
   [
     { left: 80, top: 60 }, // S
-    { left: 20, top: 60 }, // M1
+    { left: 20, top: 60, position: 'L' }, // M1
     { left: 30, top: 5 }, // H2
     { left: 45, top: 12 }, // R
     { left: 50, top: 5 }, // M2
@@ -36,7 +36,7 @@ const serve = [
     { left: 50, top: 5 }, // M1
     { left: 55, top: 17 }, // H2
     { left: 80, top: 107 }, // R - serving
-    { left: 39, top: 60 }, // M2
+    { left: 39, top: 60, position: 'L' }, // M2
     { left: 31, top: 80 }, // H1
   ],
 
@@ -46,7 +46,7 @@ const serve = [
     { left: 50, top: 5 }, // M1
     { left: 50, top: 107 }, // H2 - serving
     { left: 80, top: 60 }, // R 
-    { left: 20, top: 60 }, // M2
+    { left: 20, top: 60, position: 'L' }, // M2
     { left: 30, top: 5 }, // H1
   ],
 
