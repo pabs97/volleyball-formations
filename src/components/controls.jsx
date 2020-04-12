@@ -1,13 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import { setRotationBase } from '../actions/rotationBase';
-import { setLevel } from '../actions/setLevel';
-import { setDefense } from '../actions/defense';
-import { setServeFormation } from '../actions/serve';
-import { setReceiveFormation } from '../actions/receive';
-import { setRotationRoles } from '../actions/roles';
-import { setAttackFormation } from '../actions/attack';
+import {
+  setRotationBase,
+  setControlsLevel,
+  setDefenseFormation,
+  setServeFormation,
+  setReceiveFormation,
+  setRotationRoles,
+  setAttackFormation,
+} from '../actions';
 
 class Controls extends Component {
   render() {
@@ -74,33 +76,33 @@ class Controls extends Component {
   }
 
   handleBase = () => {
-    const { setRotationBase, rotation, setLevel } = this.props;
+    const { setRotationBase, rotation, setControlsLevel } = this.props;
+    setControlsLevel(1);
     setRotationBase(rotation);
-    setLevel(1);
   }
 
   handleServeReceive = (receive) => {
-    const { players, rotation, setLevel, setRotationRoles, setServeFormation, setReceiveFormation } = this.props;
+    const { players, rotation, setControlsLevel, setRotationRoles, setServeFormation, setReceiveFormation } = this.props;
     const level = receive ? 3 : 2;
     const setFormation = receive ? setReceiveFormation : setServeFormation;
 
-    setLevel(level);
+    setControlsLevel(level);
     setRotationRoles(players, rotation, receive);
     setFormation(players, rotation);
   }
 
   handleDefense = (level) => {
-    const { setDefense, setLevel, players } = this.props;
+    const { setDefenseFormation, setControlsLevel, players } = this.props;
     const defenseTypes = ['base', 'left', 'middle', 'right'];
 
-    setLevel(level);
-    setDefense(players, defenseTypes[level - 4]);
+    setControlsLevel(level);
+    setDefenseFormation(players, defenseTypes[level - 4]);
   }
 
   handleAttack = (level) => {
-    const { setLevel, players, rotation, setAttackFormation } = this.props;
+    const { players, rotation, setControlsLevel, setAttackFormation } = this.props;
 
-    setLevel(level);
+    setControlsLevel(level);
     setAttackFormation(players, rotation, level === 8);
   }
 
@@ -112,8 +114,8 @@ export default connect(
   mapStateToProps,
   {
     setRotationBase,
-    setLevel,
-    setDefense,
+    setControlsLevel,
+    setDefenseFormation,
     setRotationRoles,
     setServeFormation,
     setReceiveFormation,

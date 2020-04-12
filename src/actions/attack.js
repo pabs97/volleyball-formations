@@ -1,7 +1,7 @@
 import { SET_FORMATION } from './types';
 import { prepAttack, runAttack } from '../formations/attack';
 
-export const setAttackFormation = (players, rotation, prep) => (dispatch) => {
+const setAttackFormation = (players, rotation, prep) => (dispatch) => {
 
   let attack = prep ? prepAttack : runAttack;
   attack = { ...attack };
@@ -21,3 +21,5 @@ export const setAttackFormation = (players, rotation, prep) => (dispatch) => {
     players,
   });
 }
+
+export default setAttackFormation;

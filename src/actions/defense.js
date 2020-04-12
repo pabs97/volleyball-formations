@@ -1,7 +1,7 @@
 import { SET_FORMATION } from './types';
 import defense from '../formations/defense';
 
-export const setDefense = (players, defenseType) => (dispatch) => {
+const setDefenseFormation = (players, defenseType) => (dispatch) => {
 
   players = players.map((player) => {
     return Object.assign(player, defense[defenseType][player.role]);
@@ -12,3 +12,5 @@ export const setDefense = (players, defenseType) => (dispatch) => {
     players,
   });
 }
+
+export default setDefenseFormation;
