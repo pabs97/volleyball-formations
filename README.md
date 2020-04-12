@@ -39,3 +39,14 @@ add tooltips
 add ball on other side
 mobile friendly
 add icon
+
+Major Features
+1. Coed 6 rotation with female setter (setter doesn't block)
+2. 5s with middle setter
+
+Minor Features
+1. tool tip with player descriptions
+2. cross hairs showing alignment
+3. arrows showing attack direction
+4. other team setter and ball animation
+5. use sass

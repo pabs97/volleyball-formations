@@ -48,9 +48,9 @@ class Controls extends Component {
       return (
         <Fragment>
           <button onClick={() => this.handleDefense(4)}>4 - Base Defense</button>
-          <button onClick={() => this.handleDefense(5)}>5 - Left Defense</button>
-          <button onClick={() => this.handleDefense(6)}>6 - Middle Defense</button>
-          <button onClick={() => this.handleDefense(7)}>7 - Right Defense</button>
+          <button className='button--indent' onClick={() => this.handleDefense(5)}>Left Defense</button>
+          <button className='button--indent' onClick={() => this.handleDefense(6)}>Middle Defense</button>
+          <button className='button--indent' onClick={() => this.handleDefense(7)}>Right Defense</button>
         </Fragment>
       );
     }
@@ -86,7 +86,7 @@ class Controls extends Component {
 
   rotateButtons() {
     return Array(6).fill().map((v, i) => {
-      return <button key={i} className='button--indent' onClick={() => this.props.rotateBase(i + 1)}>Rotation {i + 1} Base</button>
+      return <button key={i} className='button--indent' onClick={() => this.props.rotateBase(i + 1)}>Rotation {i + 1}</button>
     })
   }
 
