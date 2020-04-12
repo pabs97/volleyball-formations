@@ -2,7 +2,7 @@
 $button-primary-color: rgb(5, 5, 58);
 $button-secondary-color: rgb(16, 110, 110);
 $player-primary-color: lightgreen;
-// $player-primary-color: blue;
+$player-secondary-color: gold;
 
 // Sizes
 $player-size-desktop: 3em;
@@ -66,6 +66,10 @@ h3 {
   border: 1px solid black;
   transform: translate(-50%, -50%);
   transition: 2s;
+
+  &--libero {
+    background-color: $player-secondary-color;
+  }
 }
 
 .controls {
@@ -75,9 +79,9 @@ h3 {
 
   button {
     height: 3.2em;
+    margin: 0.125em;
     background-color: $button-primary-color;
     color: white;
-    margin: 0.125em;
     text-align: left;
   
     border-radius: 0.5em;

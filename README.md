@@ -50,3 +50,4 @@ Minor Features
 3. arrows showing attack direction
 4. other team setter and ball animation
 5. input to set animation speed
+7. add redux dev tools

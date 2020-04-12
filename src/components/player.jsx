@@ -6,12 +6,19 @@ function Player(props) {
 
   return (
     <div
-      className='player'
+      className={generateClassNames(position)}
       style={generateStyles(left, top)}
     >
       {position}
     </div>
   );
+}
+
+function generateClassNames(position) {
+  let classes = 'player';
+  if (position === 'L') classes += ' player--libero';
+
+  return classes;
 }
 
 function generateStyles(left, top) {
