@@ -1,6 +1,6 @@
 import { DEFINE_ROTATION_ROLES } from './types';
 
-const setRotationRoles = (players, rotation, receive) => (dispatch) => {
+const setRotationRoles = (players, rotation, serveReceive) => (dispatch) => {
   players = [...players];
 
   // Set Player Roles
@@ -37,7 +37,7 @@ const setRotationRoles = (players, rotation, receive) => (dispatch) => {
 
   // Special case if serve receive and Rotation 1
   // R stays as FL and H1 stays as FR
-  if (receive && rotation === 1) {
+  if (serveReceive === 2 && rotation === 1) {
     players[3].role = 'FL';
     players[5].role = 'FR';
   }
@@ -45,7 +45,7 @@ const setRotationRoles = (players, rotation, receive) => (dispatch) => {
   dispatch({
     type: DEFINE_ROTATION_ROLES,
     players: players,
-    serving: true,
+    serveReceive,
   });
 
 };

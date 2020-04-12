@@ -11,15 +11,17 @@ import {
   setAttackFormation,
 } from '../actions';
 
+const headerText = ['', ' - Serving', ' - Receiving'];
+
 class Controls extends Component {
   render() {
 
-    const { rotation } = this.props;
+    const { rotation, serveReceive } = this.props;
     // TODO: add toggles and grey them out instead
 
     return (
       <section className='controls'>
-        <h3>Rotation {rotation}</h3>
+        <h3>Rotation {rotation}{headerText[serveReceive]}</h3>
         <button onClick={this.handleBase}>1 - Rotation {rotation} Base</button>
 
         {this.renderBaseButtons()}
@@ -34,8 +36,8 @@ class Controls extends Component {
       return (
         <Fragment>
           {this.renderRotateButtons()}
-          <button onClick={() => this.handleServeReceive(false)}>2 - Serve</button>
-          <button onClick={() => this.handleServeReceive(true)}>3 - Receive</button>
+          <button onClick={() => this.handleServeReceive(1)}>2 - Serve</button>
+          <button onClick={() => this.handleServeReceive(2)}>3 - Receive</button>
         </Fragment>
       );
     }
@@ -78,16 +80,16 @@ class Controls extends Component {
   handleBase = () => {
     const { setRotationBase, rotation, setControlsLevel } = this.props;
     setControlsLevel(1);
-    setRotationBase(rotation);
+    setRotationBase(rotation, 0);
   }
 
-  handleServeReceive = (receive) => {
+  handleServeReceive = (serveReceive) => {
     const { players, rotation, setControlsLevel, setRotationRoles, setServeFormation, setReceiveFormation } = this.props;
-    const level = receive ? 3 : 2;
-    const setFormation = receive ? setReceiveFormation : setServeFormation;
+    const setFormation = serveReceive === 1 ? setServeFormation : setReceiveFormation;
 
-    setControlsLevel(level);
-    setRotationRoles(players, rotation, receive);
+    // serve - 2, receive - 3
+    setControlsLevel(serveReceive + 1);
+    setRotationRoles(players, rotation, serveReceive);
     setFormation(players, rotation);
   }
 

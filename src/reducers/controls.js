@@ -22,7 +22,7 @@ import { SET_CONTROLS_LEVEL } from '../actions/types';
 
 const initialState = { level: 1 }
 
-export default function controls(state = initialState, action) {
+export default function (state = initialState, action) {
   const { type, level } = action;
 
   switch (type) {

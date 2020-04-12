@@ -4,25 +4,26 @@ import { getFormationForRotation } from '../actions/rotationBase';
 const initialState = {
   players: getFormationForRotation(1),
   rotation: 1,
-  serving: false,
+  serveReceive: 0,
 };
 
-export default function roles(state = initialState, action) {
+export default function (state = initialState, action) {
 
-  const { type, players, rotation, serving } = action;
+  const { type, players, rotation, serveReceive } = action;
 
   switch (type) {
     case DEFINE_ROTATION_ROLES:
       return {
         ...state,
         players,
-        serving,
+        serveReceive,
       };
     case SET_ROTATION_BASE:
       return {
         ...state,
         players,
         rotation,
+        serveReceive,
       };
     case SET_FORMATION:
       return {

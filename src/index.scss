@@ -62,7 +62,7 @@ h3 {
   background-color: $player-primary-color;
   border-radius: 50%;
   text-align: center;
-  opacity: .8;
+  opacity: 0.8;
   border: 1px solid black;
   transform: translate(-50%, -50%);
   transition: 2s;
@@ -93,7 +93,7 @@ h3 {
     }
 
     &.--indent {
-      margin-left: 1.2em;
+      margin-left: 2em;
       background-color: $button-secondary-color;
     }
   }
@@ -125,6 +125,7 @@ h3 {
       width: 100%;
       
       &.--indent {
+        margin-left: 0;
         text-align: center;
         width: 25%;
       }
