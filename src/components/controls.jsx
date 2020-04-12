@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import { rotateBase } from '../actions/rotateBase';
+import { setRotationBase } from '../actions/rotationBase';
 import { setLevel } from '../actions/setLevel';
 import { setDefense } from '../actions/defense';
 import { setServeFormation } from '../actions/serve';
 import { setReceiveFormation } from '../actions/receive';
-import { defineRoles } from '../actions/defineRoles';
+import { setRotationRoles } from '../actions/roles';
 import { setAttackFormation } from '../actions/attack';
 
 class Controls extends Component {
@@ -69,30 +69,25 @@ class Controls extends Component {
 
   renderRotateButtons() {
     return Array(6).fill().map((v, i) => {
-      return <button key={i} className='--indent' onClick={() => this.props.rotateBase(i + 1)}>Rotation {i + 1}</button>
+      return <button key={i} className='--indent' onClick={() => this.props.setRotationBase(i + 1)}>Rotation {i + 1}</button>
     })
   }
 
   handleBase = () => {
-    const { rotateBase, rotation, setLevel } = this.props;
-    rotateBase(rotation);
+    const { setRotationBase, rotation, setLevel } = this.props;
+    setRotationBase(rotation);
     setLevel(1);
   }
 
   handleServeReceive = (receive) => {
-    const { defineRoles, players, setLevel, rotation, setServeFormation, setReceiveFormation } = this.props;
+    const { players, rotation, setLevel, setRotationRoles, setServeFormation, setReceiveFormation } = this.props;
     const level = receive ? 3 : 2;
     const setFormation = receive ? setReceiveFormation : setServeFormation;
 
     setLevel(level);
-    defineRoles(players, rotation, receive);
+    setRotationRoles(players, rotation, receive);
     setFormation(players, rotation);
   }
-
-
-
-
-
 
   handleDefense = (level) => {
     const { setDefense, setLevel, players } = this.props;
@@ -109,7 +104,6 @@ class Controls extends Component {
     setAttackFormation(players, rotation, level === 8);
   }
 
-
 }
 
 const mapStateToProps = (state) => ({ ...state.controlsReducer, ...state.playersReducer });
@@ -117,10 +111,10 @@ const mapStateToProps = (state) => ({ ...state.controlsReducer, ...state.players
 export default connect(
   mapStateToProps,
   {
-    rotateBase,
+    setRotationBase,
     setLevel,
     setDefense,
-    defineRoles,
+    setRotationRoles,
     setServeFormation,
     setReceiveFormation,
     setAttackFormation,

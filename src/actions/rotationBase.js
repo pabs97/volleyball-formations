@@ -1,7 +1,7 @@
 import { SET_ROTATION_BASE } from './types';
 import { base, coordinates } from '../formations/base'
 
-export const rotateBase = (rotation) => (dispatch) => {
+export const setRotationBase = (rotation) => (dispatch) => {
 
   dispatch({
     type: SET_ROTATION_BASE,

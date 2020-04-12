@@ -1,6 +1,6 @@
 import { DEFINE_ROTATION_ROLES } from './types';
 
-export const defineRoles = (players, rotation, receive) => (dispatch) => {
+export const setRotationRoles = (players, rotation, receive) => (dispatch) => {
   players = [...players];
 
   // Set Player Roles

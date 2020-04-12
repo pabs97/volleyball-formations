@@ -1,5 +1,5 @@
 import { SET_ROTATION_BASE, DEFINE_ROTATION_ROLES, SET_FORMATION } from '../actions/types';
-import { getFormationForRotation } from '../actions/rotateBase';
+import { getFormationForRotation } from '../actions/rotationBase';
 
 const initialState = {
   players: getFormationForRotation(1),
