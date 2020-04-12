@@ -47,11 +47,11 @@ h3 {
   width: 80%;
   height:80%;
   border: 0.3em black solid;
-}
 
-.court--attack-line {
-  height: 33%;
-  border-bottom: 0.3em blue solid;
+  &__attack-line {
+    height: 33%;
+    border-bottom: 0.3em blue solid;
+  }
 }
 
 .player {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Player from './player';
-
 import { connect } from 'react-redux';
+
+import Player from './player';
 
 class Court extends Component {
 
@@ -9,7 +9,7 @@ class Court extends Component {
     return (
       <section className="courtContainer" >
         <section className="court">
-          <section className="court--attack-line"></section>
+          <section className="court__attack-line"></section>
           {this.generatePlayers()}
         </section>
       </section >
@@ -17,10 +17,11 @@ class Court extends Component {
   }
 
   generatePlayers() {
-    if (!this.props.players) return;
+    const { players } = this.props;
+    if (!players) return;
 
     let i = 0;
-    return this.props.players.map((player) => {
+    return players.map((player) => {
       return (
         <Player
           key={i++}
@@ -31,8 +32,6 @@ class Court extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { ...state.playersReducer };
-};
+const mapStateToProps = (state) => ({ ...state.playersReducer });
 
 export default connect(mapStateToProps, {})(Court);

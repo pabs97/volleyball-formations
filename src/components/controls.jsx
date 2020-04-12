@@ -1,18 +1,18 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+
 import { rotateBase } from '../actions/rotateBase';
 import { setLevel } from '../actions/setLevel';
 import { setDefense } from '../actions/defense';
 import { setServeFormation } from '../actions/serve';
 import { setReceiveFormation } from '../actions/receive';
 import { defineRoles } from '../actions/defineRoles';
-import { connect } from 'react-redux';
 import { setAttackFormation } from '../actions/attack';
 
 class Controls extends Component {
   render() {
 
     const { rotation } = this.props;
-    // TODO input to set animation speed
     // TODO: add toggles and grey them out instead
 
     return (
@@ -22,22 +22,21 @@ class Controls extends Component {
 
         {this.renderBaseButtons()}
         {this.renderDefenseButtons()}
-        {this.renderPrepareAttackButton()}
-        {this.renderAttackButton()}
+        {this.renderAttackButtons()}
       </section >
     );
   }
 
   renderBaseButtons() {
-    if (this.props.level !== 1) return;
-
-    return (
-      <Fragment>
-        {this.rotateButtons()}
-        <button onClick={this.handleServe}>2 - Serve</button>
-        <button onClick={this.handleReceive}>3 - Receive</button>
-      </Fragment>
-    );
+    if (this.props.level === 1) {
+      return (
+        <Fragment>
+          {this.renderRotateButtons()}
+          <button onClick={() => this.handleServeReceive(false)}>2 - Serve</button>
+          <button onClick={() => this.handleServeReceive(true)}>3 - Receive</button>
+        </Fragment>
+      );
+    }
   }
 
   renderDefenseButtons() {
@@ -55,27 +54,20 @@ class Controls extends Component {
     }
   }
 
-  renderPrepareAttackButton() {
+  renderAttackButtons() {
     const { level } = this.props;
 
     if (level === 3 || (level >= 5 && level <= 9)) {
       return (
-        <button onClick={() => this.handleAttack(8)}>8 - Prepare Attack</button>
+        <Fragment>
+          <button onClick={() => this.handleAttack(8)}>8 - Prepare Attack</button>
+          <button onClick={() => this.handleAttack(9)}>9 - Attack</button>
+        </Fragment>
       );
     }
   }
 
-  renderAttackButton() {
-    const { level } = this.props;
-
-    if (level === 3 || (level >= 5 && level <= 9)) {
-      return (
-        <button onClick={() => this.handleAttack(9)}>9 - Attack</button>
-      );
-    }
-  }
-
-  rotateButtons() {
+  renderRotateButtons() {
     return Array(6).fill().map((v, i) => {
       return <button key={i} className='--indent' onClick={() => this.props.rotateBase(i + 1)}>Rotation {i + 1}</button>
     })
@@ -87,28 +79,20 @@ class Controls extends Component {
     setLevel(1);
   }
 
-  handleServe = () => {
-    const { defineRoles, players, setLevel, rotation, setServeFormation } = this.props;
+  handleServeReceive = (receive) => {
+    const { defineRoles, players, setLevel, rotation, setServeFormation, setReceiveFormation } = this.props;
+    const level = receive ? 3 : 2;
+    const setFormation = receive ? setReceiveFormation : setServeFormation;
 
-    setLevel(2);
-
-    // Define roles of players
-    defineRoles(players, rotation, false);
-
-    // Set formation
-    setServeFormation(players, rotation);
+    setLevel(level);
+    defineRoles(players, rotation, receive);
+    setFormation(players, rotation);
   }
 
-  handleReceive = () => {
-    const { defineRoles, players, setLevel, rotation, setReceiveFormation } = this.props;
 
-    setLevel(3);
-    // Define roles of players
-    defineRoles(players, rotation, true);
 
-    // Set formation
-    setReceiveFormation(players, rotation);
-  }
+
+
 
   handleDefense = (level) => {
     const { setDefense, setLevel, players } = this.props;
@@ -128,9 +112,7 @@ class Controls extends Component {
 
 }
 
-const mapStateToProps = (state) => {
-  return { ...state.controlsReducer, ...state.playersReducer };
-};
+const mapStateToProps = (state) => ({ ...state.controlsReducer, ...state.playersReducer });
 
 export default connect(
   mapStateToProps,

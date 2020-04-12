@@ -49,4 +49,4 @@ Minor Features
 2. cross hairs showing alignment
 3. arrows showing attack direction
 4. other team setter and ball animation
-5. use sass
+5. input to set animation speed

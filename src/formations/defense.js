@@ -12,7 +12,6 @@ const defense = {
     'BR': { left: 80, top: 60 },
   },
 
-
   middle: {
     // Front Row
     'FL': { left: 30, top: 15 },
@@ -24,7 +23,6 @@ const defense = {
     'BM': { left: 50, top: 90 },
     'BR': { left: 80, top: 50 },
   },
-
 
   left: {
     // Front Row
