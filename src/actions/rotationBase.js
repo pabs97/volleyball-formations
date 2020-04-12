@@ -14,10 +14,10 @@ export const setRotationBase = (rotation, serveReceive) => (dispatch) => {
 export function getFormationForRotation(rotation) {
 
   return base
-    // Deep copy base to get original positions on rotation
-    .map(obj => ({ ...obj }))
     .map((player, i) => {
       const coord = (i + rotation - 1) % 6;
-      return Object.assign(player, coordinates[coord]);
+
+      // Deep copy base to get original positions on rotation
+      return Object.assign({}, player, coordinates[coord]);
     });
 }
