@@ -43,14 +43,13 @@ class Controls extends Component {
   renderDefenseButtons() {
     const { level } = this.props;
 
-    console.log('renderDefenseButtons', level);
     if (level === 2 || (level >= 4 && level <= 9)) {
       return (
         <Fragment>
           <button onClick={() => this.handleDefense(4)}>4 - Base Defense</button>
-          <button className='button--indent' onClick={() => this.handleDefense(5)}>Left Defense</button>
-          <button className='button--indent' onClick={() => this.handleDefense(6)}>Middle Defense</button>
-          <button className='button--indent' onClick={() => this.handleDefense(7)}>Right Defense</button>
+          <button className='--indent' onClick={() => this.handleDefense(5)}>5 - Left</button>
+          <button className='--indent' onClick={() => this.handleDefense(6)}>6 - Middle</button>
+          <button className='--indent' onClick={() => this.handleDefense(7)}>7 - Right</button>
         </Fragment>
       );
     }
@@ -59,13 +58,9 @@ class Controls extends Component {
   renderPrepareAttackButton() {
     const { level } = this.props;
 
-    console.log('renderPrepareAttackButton', level);
-
     if (level === 3 || (level >= 5 && level <= 9)) {
       return (
-        <Fragment>
-          <button onClick={() => this.handleAttack(8)}>8 - Prepare Attack</button>
-        </Fragment>
+        <button onClick={() => this.handleAttack(8)}>8 - Prepare Attack</button>
       );
     }
   }
@@ -73,20 +68,16 @@ class Controls extends Component {
   renderAttackButton() {
     const { level } = this.props;
 
-    console.log('renderAttackButton', level);
-
-    if (level === 3 || level >= 5 && level <= 9) {
+    if (level === 3 || (level >= 5 && level <= 9)) {
       return (
-        <Fragment>
-          <button onClick={() => this.handleAttack(9)}>9 - Attack</button>
-        </Fragment>
+        <button onClick={() => this.handleAttack(9)}>9 - Attack</button>
       );
     }
   }
 
   rotateButtons() {
     return Array(6).fill().map((v, i) => {
-      return <button key={i} className='button--indent' onClick={() => this.props.rotateBase(i + 1)}>Rotation {i + 1}</button>
+      return <button key={i} className='--indent' onClick={() => this.props.rotateBase(i + 1)}>Rotation {i + 1}</button>
     })
   }
 

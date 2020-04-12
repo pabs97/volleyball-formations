@@ -1,0 +1,130 @@
+// Colors
+$button-primary-color: rgb(5, 5, 58);
+$button-secondary-color: rgb(16, 110, 110);
+$player-primary-color: lightgreen;
+// $player-primary-color: blue;
+
+// Sizes
+$player-size-desktop: 3em;
+$player-size-mobile: 2em;
+
+// Debugging
+$debugging-border: 2px dotted red;
+$debugging-border: none;
+
+
+
+
+body {
+  font-family: sans-serif;
+}
+
+#root {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  position: absolute;
+  width: 48em;
+  left: 50%;
+  transform: translate(-50%,0);
+  border: $debugging-border;
+}
+
+h3 {
+  margin: 0.2em 1em;
+}
+
+.courtContainer {
+  position: relative;
+  width: 37.5em;
+  height: 37.5em;
+}
+
+.court {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 80%;
+  height:80%;
+  border: 0.3em black solid;
+}
+
+.court--attack-line {
+  height: 33%;
+  border-bottom: 0.3em blue solid;
+}
+
+.player {
+  position: absolute;
+  width: $player-size-desktop;
+  height: $player-size-desktop;
+  line-height: $player-size-desktop;
+  background-color: $player-primary-color;
+  border-radius: 50%;
+  text-align: center;
+  opacity: .8;
+  border: 1px solid black;
+  transform: translate(-50%, -50%);
+  transition: 2s;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  border: $debugging-border;
+
+  button {
+    height: 3.2em;
+    background-color: $button-primary-color;
+    color: white;
+    margin: 0.125em;
+    text-align: left;
+  
+    border-radius: 0.5em;
+    padding: 0 1em;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+
+    &.--indent {
+      margin-left: 1.2em;
+      background-color: $button-secondary-color;
+    }
+  }
+}
+
+
+// Mobile
+@media (max-width: 768px) {
+  #root {
+    width: 100%;
+  }
+
+  .courtContainer {
+    height: 25em;
+  }
+
+  .player {
+    width: $player-size-mobile;
+    height: $player-size-mobile;
+    line-height: $player-size-mobile;
+  }
+
+  .controls {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    button {
+      width: 100%;
+      
+      &.--indent {
+        text-align: center;
+        width: 25%;
+      }
+    }
+  }
+
+}

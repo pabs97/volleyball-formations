@@ -16,8 +16,6 @@ export const setAttackFormation = (players, rotation, prep) => (dispatch) => {
     return Object.assign(player, attack[player.role])
   });
 
-  console.log(attack, players);
-
   dispatch({
     type: SET_FORMATION,
     players,
