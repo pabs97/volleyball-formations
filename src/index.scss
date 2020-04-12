@@ -31,7 +31,7 @@ body {
 }
 
 h3 {
-  margin: 0.2em 1em;
+  font-size: 1em;
 }
 
 .courtContainer {
@@ -46,11 +46,11 @@ h3 {
   transform: translate(-50%, 0);
   width: 80%;
   height:80%;
-  border: 0.3em black solid;
+  border: 0.3em solid black;
 
   &__attack-line {
     height: 33%;
-    border-bottom: 0.3em blue solid;
+    border-bottom: 0.3em solid blue;
   }
 }
 
@@ -93,7 +93,7 @@ h3 {
     }
 
     &.--indent {
-      margin-left: 2em;
+      margin-left: 1.2em;
       background-color: $button-secondary-color;
     }
   }

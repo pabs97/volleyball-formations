@@ -11,7 +11,7 @@ import {
   setAttackFormation,
 } from '../actions';
 
-const headerText = ['', ' - Serving', ' - Receiving'];
+const headerText = ['', ' - Serve', ' - Receive'];
 
 class Controls extends Component {
   render() {
