@@ -7,10 +7,12 @@ class Court extends Component {
 
   render() {
     return (
-      <section className="court">
-        <section className="court--attack-line"></section>
-        {this.generatePlayers()}
-      </section>
+      <section className="courtContainer" >
+        <section className="court">
+          <section className="court--attack-line"></section>
+          {this.generatePlayers()}
+        </section>
+      </section >
     );
   }
 

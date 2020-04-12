@@ -11,38 +11,54 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+#root {
+  font-family: sans-serif;
+  width: 768px;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
 
+  left: 50%;
+  transform: translate(-50%,0);
+  position: absolute;
+}
+
+h3 {
+  margin: 0.2em 1em;
+}
+
+.courtContainer {
+  margin-top: 20px;
+  width: 600px;
+  height: 600px;
+  position: relative;
+}
 
 .court {
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
 
-  width: 600px;
-  height: 600px;
 
-  /* width: 800px;
-  height:800px; */
+  width: 80%;
+  height:90%;
   border: 5px black solid;
 }
 
 .court--attack-line {
-  height: 200px;
+  height: 30%;
   border-bottom: 5px blue solid;
 }
 
 .player {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+
   width: 60px;
   height: 60px;
   line-height: 60px;
   background-color: lightgreen;
   border-radius: 50%;
   text-align: center;
-  font-family: sans-serif;
   opacity: .8;
   border: 1px solid black;
   
@@ -50,16 +66,58 @@ code {
   transition: 2s;
 }
 
+.controls {
+  /* border: 2px dotted red; */
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+}
+
 .controls button {
-  display: block;
   min-width: 150px;
-  height:30px;
+  height:40px;
   background-color: rgb(5, 5, 58);
   color: white;
   margin:2px;
   text-align: left;
+
+  border-radius: 10px;
+  padding: 0 18px;
 }
 
 .controls  button.button--indent {
   margin-left: 20px;
+  min-width: 130px;
+  background-color: rgb(16, 110, 110);
+}
+
+
+/* @media only screen (min-width: 768px) { */
+@media (max-width: 768px) {
+  #root {
+    /* background-color: red; */
+    width: 100%;
+  }
+
+  .courtContainer {
+    height: 400px;
+  }
+
+  .controls { 
+    width: 100%;
+  }
+
+  .controls button {
+    height: 2.5em;
+  }
+
+  .controls button.button--indent {
+    width:70%;
+  }
+
+  .player {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+  }
 }
