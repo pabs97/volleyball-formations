@@ -41,6 +41,7 @@ class Controls extends Component {
         </Fragment>
       );
     }
+    // TODO: keep serve receive buttons after they have been selected
   }
 
   renderDefenseButtons() {

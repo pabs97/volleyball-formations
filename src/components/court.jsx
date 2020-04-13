@@ -34,19 +34,19 @@ class Court extends Component {
   }
 
   generateAttackArrows() {
-    const { level, rotation } = this.props;
+    const { rotation, level } = this.props;
     const row = rotation <= 3 ? 'front' : 'back';
+    const show = level === 8 ? 'arrow--show' : '';
 
-    if (level === 8) {
-      return (
-        <Fragment>
-          <img src={arrow} className='arrow arrow--outside' alt="outside attack" />
-          <img src={arrow} className='arrow arrow--middle' alt="middle attack" />
-          <img src={arrow} className='arrow arrow--pipe' alt="pipe attack" />
-          <img src={arrow} className={`arrow arrow--opposite-${row}`} alt="opposite attack" />
-        </Fragment>
-      );
-    }
+    return (
+      <Fragment>
+        <img src={arrow} className={`arrow arrow__outside ${show}`} alt="outside attack" />
+        <img src={arrow} className={`arrow arrow__middle ${show}`} alt="middle attack" />
+        <img src={arrow} className={`arrow arrow__pipe ${show}`} alt="pipe attack" />
+        <img src={arrow} className={`arrow arrow__opposite-${row} ${show}`} alt="opposite attack" />
+      </Fragment>
+    );
+
   }
 
 }

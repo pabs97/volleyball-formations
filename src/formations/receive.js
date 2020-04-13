@@ -7,14 +7,14 @@ const receive = [
     { left: 20, top: 60 }, // H2 - backrow
     { left: 5, top: 25 }, // R
     { left: 40, top: 15 }, // M2
-    { left: 80, top: 56 }, // H1
+    { left: 80, top: 55 }, // H1
   ],
 
   // Rotation 2
   [
     { left: 60, top: 10 }, // S - backrow
     { left: 50, top: 60, position: 'L' }, // M1 - backrow
-    { left: 20, top: 54 }, // H2
+    { left: 20, top: 55 }, // H2
     { left: 70, top: 5 }, // R
     { left: 95, top: 30 }, // M2
     { left: 80, top: 60 }, // H1 - backrow
@@ -24,7 +24,7 @@ const receive = [
   [
     { left: 40, top: 20 }, // S - backrow
     { left: 13, top: 15 }, // M1 
-    { left: 20, top: 54 }, // H2
+    { left: 20, top: 55 }, // H2
     { left: 95, top: 25 }, // R
     { left: 80, top: 60, position: 'L' }, // M2 - backrow
     { left: 50, top: 60 }, // H1 - backrow
@@ -32,10 +32,10 @@ const receive = [
 
   // Rotation 4
   [
-    { left: 15, top: 15 }, // S
+    { left: 15, top: 7 }, // S
     { left: 20, top: 22 }, // M1
-    { left: 25, top: 55 }, // H2
-    { left: 86, top: 85 }, // R - backrow
+    { left: 25, top: 60 }, // H2
+    { left: 88, top: 88 }, // R - backrow
     { left: 80, top: 60, position: 'L' }, // M2 - backrow
     { left: 52, top: 60 }, // H1 - backrow
   ],
