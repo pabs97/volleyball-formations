@@ -24,24 +24,39 @@ class Controls extends Component {
         <h3>Rotation {rotation}{headerText[serveReceive]}</h3>
         <button onClick={this.handleBase}>1 - Rotation {rotation} Base</button>
 
-        {this.renderBaseButtons()}
+        {/* {this.renderBaseButtons()} */}
+        {this.renderRotateButtons()}
+        {this.renderServeButton()}
+        {this.renderReceiveButton()}
+
         {this.renderDefenseButtons()}
         {this.renderAttackButtons()}
       </section >
     );
   }
 
-  renderBaseButtons() {
+  renderRotateButtons() {
     if (this.props.level === 1) {
-      return (
-        <Fragment>
-          {this.renderRotateButtons()}
-          <button onClick={() => this.handleServeReceive(1)}>2 - Serve</button>
-          <button onClick={() => this.handleServeReceive(2)}>3 - Receive</button>
-        </Fragment>
-      );
+      return Array(6).fill().map((v, i) => {
+        return <button key={i} className='--indent' onClick={() => this.props.setRotationBase(i + 1)}>Rotation {i + 1}</button>
+      })
     }
-    // TODO: keep serve receive buttons after they have been selected
+  }
+
+  renderServeButton() {
+    const { level, serveReceive } = this.props;
+
+    if (level === 1 || serveReceive === 1) {
+      return <button onClick={() => this.handleServeReceive(1)}>2 - Serve</button>;
+    }
+  }
+
+  renderReceiveButton() {
+    const { level, serveReceive } = this.props;
+
+    if (level === 1 || serveReceive === 2) {
+      return <button onClick={() => this.handleServeReceive(2)}>3 - Receive</button>;
+    }
   }
 
   renderDefenseButtons() {
@@ -70,12 +85,6 @@ class Controls extends Component {
         </Fragment>
       );
     }
-  }
-
-  renderRotateButtons() {
-    return Array(6).fill().map((v, i) => {
-      return <button key={i} className='--indent' onClick={() => this.props.setRotationBase(i + 1)}>Rotation {i + 1}</button>
-    })
   }
 
   handleBase = () => {

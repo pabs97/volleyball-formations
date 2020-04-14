@@ -42,14 +42,17 @@ add icon
 
 Major Features
 1. Coed 6 rotation with female setter (setter doesn't block)
-2. 5s with middle setter
+2. 5s with middle setter https://www.youtube.com/watch?v=KR7rRiE3WA0
+3. Side bar for controls
 
 Minor Features
 1. tool tip with player descriptions
 2. cross hairs showing alignment
-3. arrows showing attack direction
 4. other team setter and ball animation
 5. input to set animation speed
 9. hot reloading
 https://redux.js.org/recipes/configuring-your-store/
 10. Unit tests
+
+11. Use typescript!
+12. Draw shapes of how blockers cover
