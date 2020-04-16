@@ -56,3 +56,28 @@ https://redux.js.org/recipes/configuring-your-store/
 
 11. Use typescript!
 12. Draw shapes of how blockers cover
+
+
+### Testing
+#### Youtube guy
+https://www.youtube.com/watch?v=3e1GHCA3GP0
+
+This guy describes using
+
+
+@testing-library/react
+react-test-renderer
+jest-dom
+
+this has a render funciton similar to React
+returns { getByText, getByTextId }
+
+import 'jest-dom/extend-expect';
+expect.toHaveTextContent
+
+#### React Testing Doc
+https://reactjs.org/docs/testing.html
+
+they use
+@testing-library/react
+jest-dom
