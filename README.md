@@ -36,9 +36,9 @@ For more detail see state_diagram.jpg
 2. Serve - serve (our team serving) positions
 3. Receive - receive (other team serving) positions
 4. Base Defense - other team is preparing to attack
-    1. (5) Left Defense
-    2. (6) Middle Defense
-    3. (7) Right Defense
+    1. Left Defense
+    2. Middle Defense
+    3. Right Defense
 8. Prepare Attack
 9. Attack
 
