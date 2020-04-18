@@ -5,15 +5,13 @@ import Controls from './components/controls';
 import { Provider } from 'react-redux';
 import store from './store';
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Court />
-        <Controls />
-      </Provider>
-    );
-  }
+function App() {
+  return (
+    <Provider store={store}>
+      <Court />
+      <Controls />
+    </Provider>
+  );
 }
 
 export default App;
