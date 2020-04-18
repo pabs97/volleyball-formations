@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React App used to teach volleyball 5-1 rotations. It is hosted using Firebase here
+https://volleyball-formations.web.app/
 
 ## Available Scripts
 
@@ -30,15 +31,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 
 ## TODO
-add titles/instructions to buttons
-refactor, use index files
-consolodate verbs in file names
-add arrows
-change title, M to L for libero
-add tooltips
-add ball on other side
-mobile friendly
-add icon
 
 Major Features
 1. Coed 6 rotation with female setter (setter doesn't block)
@@ -54,30 +46,6 @@ Minor Features
 https://redux.js.org/recipes/configuring-your-store/
 10. Unit tests
 
-11. Use typescript!
+11. typescript
 12. Draw shapes of how blockers cover
 
-
-### Testing
-#### Youtube guy
-https://www.youtube.com/watch?v=3e1GHCA3GP0
-
-This guy describes using
-
-
-@testing-library/react
-react-test-renderer
-jest-dom
-
-this has a render funciton similar to React
-returns { getByText, getByTextId }
-
-import 'jest-dom/extend-expect';
-expect.toHaveTextContent
-
-#### React Testing Doc
-https://reactjs.org/docs/testing.html
-
-they use
-@testing-library/react
-jest-dom
