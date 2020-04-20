@@ -1,13 +1,13 @@
 import { SET_ROTATION_BASE } from './types';
 import { base, coordinates } from '../formations/base'
 
-export const setRotationBase = (rotation, serveReceive) => (dispatch) => {
+export const setRotationBase = (rotation) => (dispatch) => {
 
   dispatch({
     type: SET_ROTATION_BASE,
     players: getFormationForRotation(rotation),
     rotation,
-    serveReceive,
+    serveReceive: 0,
   });
 }
 
