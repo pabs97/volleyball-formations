@@ -90,7 +90,7 @@ class Controls extends Component {
   handleBase = () => {
     const { setRotationBase, rotation, setControlsLevel } = this.props;
     setControlsLevel(1);
-    setRotationBase(rotation, 0);
+    setRotationBase(rotation);
   }
 
   handleServeReceive = (serveReceive) => {
