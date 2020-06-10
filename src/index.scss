@@ -20,14 +20,21 @@ body {
 }
 
 #root {
+  // display: flex;
+  // flex-direction: row-reverse;
+  // flex-wrap: wrap;
+  // position: absolute;
+  // width: 48em;
+  // left: 50%;
+  // transform: translate(-50%,0);
+  // height: 100%;
+  // border: $debugging-border;
+}
+
+.courtControlsContainer {
   display: flex;
   flex-direction: row-reverse;
-  flex-wrap: wrap;
-  position: absolute;
-  width: 48em;
-  left: 50%;
-  transform: translate(-50%,0);
-  border: $debugging-border;
+  justify-content: flex-end;
 }
 
 h3 {
@@ -148,6 +155,12 @@ h3 {
 @media (max-width: 768px) {
   #root {
     width: 100%;
+  }
+
+  .courtControlsContainer {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
   }
 
   .courtContainer {
