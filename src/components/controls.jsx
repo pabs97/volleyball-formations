@@ -38,7 +38,15 @@ class Controls extends Component {
   renderRotateButtons() {
     if (this.props.level === 1) {
       return Array(6).fill().map((v, i) => {
-        return <button key={i} className='--indent' onClick={() => this.props.setRotationBase(i + 1)}>Rotation {i + 1}</button>
+        return (
+          <button
+            key={i}
+            className='--indent'
+            onClick={() => this.props.setRotationBase(i + 1)}
+          >
+            Rotation {i + 1}
+          </button>
+        );
       })
     }
   }
