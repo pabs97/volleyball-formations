@@ -32,10 +32,6 @@ body {
   border: $debugging-border;
 }
 
-h3 {
-  font-size: 1em;
-}
-
 .courtContainer {
   position: relative;
   width: 36em;
@@ -117,26 +113,13 @@ h3 {
   }
 }
 
-
-@keyframes pulse_animation {
-  0% {background-color: $button-secondary-color;}
-  50% {background-color:$button-secondary-pulse-color;}
-  100% {background-color: $button-secondary-color;}
-}
-
-
-
-
-
-
-
 .controls {
   display: flex;
   flex-direction: column;
   border: $debugging-border;
   width: 12em;
 
-  button {
+  .control-button {
     height: 3.2em;
     margin: 0.125em;
     width: 100%;
@@ -157,13 +140,36 @@ h3 {
       width: 80%;
       align-self: flex-end;
     }
+  }
+}
 
-    &.--pulse {
-      animation-name: pulse_animation;
-      animation-duration: 1600ms;
-      transform-origin: 70% 70%;
-      animation-iteration-count: 3;
-      animation-timing-function: ease-in-out;
+.description-box {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 1em;
+  margin: 0.5em;
+  padding: 0.7em;
+  font-size: 0.9em;
+  
+  p {
+    margin: 0 auto 0.5em auto;
+
+    &:last-child {
+      margin: 0 auto;
+    }
+  } 
+
+
+  &__button {
+    display: inline-block;
+    border: none;
+    background-color: lightsalmon;
+    border-radius: 0.5em;
+    padding: 0.4em 1em;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
     }
   }
 }
@@ -191,7 +197,7 @@ h3 {
     justify-content: space-evenly;
     width: 100%;
 
-    button {
+    .control-button {
       width: 100%;
       
       &.--indent {

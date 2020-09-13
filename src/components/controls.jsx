@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import HelpSection from './help';
 
 import {
   setRotationBase,
@@ -16,13 +17,25 @@ const headerText = ['', ' - Serve', ' - Receive'];
 class Controls extends Component {
   render() {
 
-    const { rotation, serveReceive } = this.props;
+    const { rotation, serveReceive, level } = this.props;
     // TODO: add toggles and grey them out instead
 
     return (
       <section className='controls'>
-        <h3>Rotation {rotation}{headerText[serveReceive]}</h3>
-        <button onClick={this.handleBase}>1 - Rotation {rotation} Base</button>
+
+
+        <div className="description-box">
+          <p><b>Base: </b>Rotation {rotation}{headerText[serveReceive]}</p>
+          <HelpSection level={level} />
+        </div>
+
+
+        <button
+          className='control-button'
+          onClick={this.handleBase}
+        >
+          {`1 - Rotation ${rotation} Base`}
+        </button>
 
         {/* {this.renderBaseButtons()} */}
         {this.renderRotateButtons()}
@@ -41,10 +54,10 @@ class Controls extends Component {
         return (
           <button
             key={i}
-            className='--indent'
+            className='control-button --indent'
             onClick={() => this.props.setRotationBase(i + 1)}
           >
-            Rotation {i + 1}
+            {`Rotation ${i + 1}`}
           </button>
         );
       })
@@ -55,7 +68,14 @@ class Controls extends Component {
     const { level, serveReceive } = this.props;
 
     if (level === 1 || serveReceive === 1) {
-      return <button onClick={() => this.handleServeReceive(1)}>2 - Serve</button>;
+      return (
+        <button
+          className="control-button"
+          onClick={() => this.handleServeReceive(1)}
+        >
+          2 - Serve
+        </button>
+      );
     }
   }
 
@@ -63,21 +83,34 @@ class Controls extends Component {
     const { level, serveReceive } = this.props;
 
     if (level === 1 || serveReceive === 2) {
-      return <button onClick={() => this.handleServeReceive(2)}>3 - Receive</button>;
+      return (
+        <button
+          className="control-button"
+          onClick={() => this.handleServeReceive(2)}
+        >
+          3 - Receive
+        </button>
+      );
     }
   }
 
   renderDefenseButtons() {
     const { level } = this.props;
+    const classes = 'control-button --indent';
 
     if (level === 2 || (level >= 4 && level <= 9)) {
       return (
-        <Fragment>
-          <button onClick={() => this.handleDefense(4)}>4 - Base Defense</button>
-          <button className='--indent' onClick={() => this.handleDefense(5)}>5 - Left</button>
-          <button className='--indent' onClick={() => this.handleDefense(6)}>6 - Middle</button>
-          <button className='--indent' onClick={() => this.handleDefense(7)}>7 - Right</button>
-        </Fragment>
+        <>
+          <button
+            className='control-button'
+            onClick={() => this.handleDefense(4)}
+          >
+            4 - Base Defense
+          </button>
+          <button className={classes} onClick={() => this.handleDefense(5)}>5 - Left</button>
+          <button className={classes} onClick={() => this.handleDefense(6)}>6 - Middle</button>
+          <button className={classes} onClick={() => this.handleDefense(7)}>7 - Right</button>
+        </>
       );
     }
   }
@@ -88,8 +121,18 @@ class Controls extends Component {
     if (level === 3 || (level >= 5 && level <= 9)) {
       return (
         <Fragment>
-          <button onClick={() => this.handleAttack(8)}>8 - Prepare Attack</button>
-          <button onClick={() => this.handleAttack(9)}>9 - Attack</button>
+          <button
+            className='control-button'
+            onClick={() => this.handleAttack(8)}
+          >
+            8 - Prepare Attack
+          </button>
+          <button
+            className='control-button'
+            onClick={() => this.handleAttack(9)}
+          >
+            9 - Attack
+          </button>
         </Fragment>
       );
     }

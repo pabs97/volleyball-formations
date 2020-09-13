@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Court from './components/court';
 import Controls from './components/controls';
 
