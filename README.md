@@ -42,6 +42,11 @@ For more detail see state_diagram.jpg
 * 8 - Prepare Attack
 * 9 - Attack
 
+### Deploying to Firebase
+1. `npm i -g firebase-tools`
+2. `firebase login`
+3. `npm run build`
+4. `firebase deploy`
 
 ### TODO
 
