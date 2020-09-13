@@ -1,3 +1,4 @@
+/* eslint-disable no-sparse-arrays */
 import React, { useState } from 'react';
 
 const basicText = [
